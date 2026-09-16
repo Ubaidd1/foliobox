@@ -1,0 +1,34 @@
+{
+  "name": "folioblox-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:client": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "node server/index.mjs",
+    "test": "node --test server/*.test.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "motion": "13.2.0",
+    "gsap": "3.15.0",
+    "three": "0.185.1",
+    "lucide-react": "1.31.0",
+    "radix-ui": "1.6.7",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "vite": "8.0.13",
+    "@vitejs/plugin-react": "6.0.2",
+    "tailwindcss": "4.2.1",
+    "@tailwindcss/postcss": "4.2.1"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

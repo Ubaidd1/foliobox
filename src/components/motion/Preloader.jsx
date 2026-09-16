@@ -1,0 +1,5 @@
+import {createContext,useContext,useEffect,useState} from 'react';
+import {AnimatePresence,motion,useReducedMotion} from 'motion/react';
+const IntroContext=createContext(true);
+export const useIntroReady=()=>useContext(IntroContext);
+export default function Preloader({children}){const [loading,setLoading]=useState(true);const reduced=useReducedMotion();useEffect(()=>{const before=document.body.style.overflow;document.body.style.overflow='hidden';const timer=setTimeout(()=>{setLoading(false);document.body.style.overflow=before},reduced?150:1100);return()=>{clearTimeout(timer);document.body.style.overflow=before}},[reduced]);return <IntroContext.Provider value={!loading}><div inert={loading?true:undefined}>{children}</div><AnimatePresence>{loading&&<motion.div className="site-preloader" key="preloader" role="status" aria-label="Loading Folioblox" initial={false} exit={{y:reduced?0:'-100%',opacity:reduced?0:1}} transition={{duration:reduced?.1:.75,ease:[.76,0,.24,1]}}><span>Folioblox</span></motion.div>}</AnimatePresence></IntroContext.Provider>}
